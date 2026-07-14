@@ -13,7 +13,6 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle blur backdrop on scroll
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -36,17 +35,15 @@ export function Header() {
       )}
     >
       <Container className="flex h-16 items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="font-medium tracking-tight text-primary hover:text-accent transition-colors z-50">
+        <Link href="/" className="font-medium tracking-tight text-foreground hover:text-accent transition-all hover:drop-shadow-[0_0_8px_rgba(20,184,166,0.5)] z-50">
           Ankith.
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-6 text-sm font-medium text-secondary">
+          <ul className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <Link href={link.href} className="hover:text-primary transition-colors">
+                <Link href={link.href} className="hover:text-foreground hover:drop-shadow-[0_0_8px_rgba(20,184,166,0.3)] transition-all">
                   {link.name}
                 </Link>
               </li>
@@ -54,10 +51,10 @@ export function Header() {
           </ul>
           
           <div className="flex items-center gap-4 border-l border-border pl-6">
-            <a href={socials.links[0].url} target="_blank" rel="noreferrer" className="text-secondary hover:text-primary transition-colors">
-              <FaGithub size={18}strokeWidth={1.5} />
+            <a href={socials.links[0].url} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground hover:drop-shadow-[0_0_8px_rgba(20,184,166,0.3)] transition-all">
+              <FaGithub size={18} strokeWidth={1.5} />
             </a>
-            <a href={socials.links[1].url} target="_blank" rel="noreferrer" className="text-secondary hover:text-primary transition-colors">
+            <a href={socials.links[1].url} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground hover:drop-shadow-[0_0_8px_rgba(20,184,166,0.3)] transition-all">
               <FaLinkedin size={18} strokeWidth={1.5} />
             </a>
             <a href="/Ankith-Binagekar.pdf" target="_blank" rel="noreferrer">
@@ -69,9 +66,8 @@ export function Header() {
           </div>
         </nav>
 
-        {/* Mobile Toggle */}
         <button
-          className="md:hidden z-50 text-secondary hover:text-primary"
+          className="md:hidden z-50 text-muted-foreground hover:text-foreground"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -79,23 +75,21 @@ export function Header() {
         </button>
       </Container>
 
-      {/* Mobile Navigation Dropdown */}
       {isOpen && (
         <div className="absolute top-16 left-0 w-full bg-background border-b border-border p-6 shadow-xl md:hidden flex flex-col gap-6">
-          <nav className="flex flex-col gap-4 text-base font-medium text-secondary">
+          <nav className="flex flex-col gap-4 text-base font-medium text-muted-foreground">
             {navLinks.map((link) => (
-              <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="hover:text-primary">
+              <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="hover:text-foreground">
                 {link.name}
               </Link>
             ))}
           </nav>
           <div className="flex items-center gap-4 pt-4 border-t border-border">
              <a href="/Ankith-Binagekar.pdf" target="_blank" rel="noreferrer" className="w-full">
-  <Button variant="default" className="w-full gap-2">
-    <FileText size={16} strokeWidth={1.5} />
-    Download Resume
-  </Button>
-</a>
+              <Button variant="secondary" className="w-full gap-2">
+                <FileText size={16} strokeWidth={1.5} /> Download Resume
+              </Button>
+            </a>
           </div>
         </div>
       )}

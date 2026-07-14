@@ -9,7 +9,7 @@ import { skillsData } from "@/data/skills";
 
 export function Skills() {
   return (
-    <Section id="skills" className="border-b border-border/50">
+    <Section id="skills" className="border-b border-border">
       <Container>
         <motion.div
           initial="initial"
@@ -33,7 +33,7 @@ export function Skills() {
         >
           {skillsData.map((category, index) => (
             <motion.div key={index} variants={fadeIn} className="flex flex-col gap-4">
-              <h3 className="text-sm font-mono tracking-widest text-secondary uppercase font-semibold">
+              <h3 className="text-sm font-mono tracking-widest text-muted-foreground uppercase font-semibold">
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">

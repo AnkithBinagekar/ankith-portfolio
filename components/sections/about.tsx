@@ -7,7 +7,7 @@ import { fadeIn } from "@/config/animations";
 
 export function About() {
   return (
-    <Section id="about" className="bg-surface/30 border-y border-border/50">
+    <Section id="about" className="bg-card/30 border-y border-border">
       <Container>
         <motion.div 
           initial="initial"
