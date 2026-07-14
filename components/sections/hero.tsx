@@ -21,11 +21,12 @@ export function Hero() {
   }
 
   return (
-    <div onMouseMove={handleMouseMove}>
-      <Section 
-        className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden flex items-center min-h-[90vh] group"
-      >
-        {/* Animated Grid Background */}
+    <Section 
+      className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden flex items-center min-h-[90vh] group"
+    >
+      {/* full-size invisible layer to capture mouse movements (Section doesn't accept onMouseMove prop) */}
+      <div className="absolute inset-0" onMouseMove={handleMouseMove} />
+      {/* Animated Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       
       {/* Mouse-reactive Radial Glow */}
@@ -51,9 +52,12 @@ export function Hero() {
         >
           <motion.div variants={fadeIn} className="flex flex-wrap items-center justify-center gap-3">
             <Badge className="bg-card/40 backdrop-blur-md border border-border/50 shadow-[0_0_15px_rgba(20,184,166,0.05)] text-muted-foreground px-4 py-1.5 rounded-full">
-              <span className="relative flex h-2 w-2 mr-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+              {/* Upgraded Premium Status Indicator */}
+              <span className="relative flex h-2 w-2 mr-2.5 items-center justify-center">
+                {/* Gentle breathing outer glow (disabled on reduced motion) */}
+                <span className="absolute inline-flex h-3 w-3 rounded-full bg-emerald-500/50 blur-[1px] motion-safe:animate-pulse"></span>
+                {/* Solid core dot with permanent soft shadow glow */}
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
               </span>
               Available for Opportunities
             </Badge>
@@ -92,6 +96,5 @@ export function Hero() {
         </motion.div>
       </Container>
     </Section>
-    </div>
   );
 }

@@ -23,9 +23,14 @@ export function Contact() {
           variants={fadeIn}
           className="flex flex-col items-center text-center max-w-3xl mx-auto space-y-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 text-accent text-sm font-medium backdrop-blur-sm">
-            Available for Full-Time Opportunities
-          </div>
+          <div className="flex items-center gap-2">
+  <span className="relative flex h-2.5 w-2.5">
+    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50"></span>
+    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+  </span>
+
+  <span>Available for Opportunities</span>
+</div>
 
           <div>
             <H2 className="text-5xl md:text-[4rem] font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted-foreground/50 mb-6 leading-[1.1]">

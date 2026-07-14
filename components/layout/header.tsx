@@ -58,7 +58,7 @@ export function Header() {
     >
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" className="font-bold tracking-tighter text-lg text-foreground hover:text-accent transition-all z-50">
-          Ankith.
+          Ankith Binagekar
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
