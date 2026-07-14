@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Briefcase } from "lucide-react";
 import { Container, Section } from "@/components/ui/container";
-import { H2, Text } from "@/components/ui/typography";
+import { H2 } from "@/components/ui/typography";
 import { Badge } from "@/components/ui/badge";
 import { fadeIn } from "@/config/animations";
 import { experiences } from "@/data/experience";
 
 export function Experience() {
   return (
-    <Section id="experience" className="border-b border-border bg-card/10">
+    <Section id="experience" className="border-b border-border">
       <Container>
         <motion.div
           initial="initial"
@@ -21,7 +22,7 @@ export function Experience() {
           <H2>Professional Experience</H2>
         </motion.div>
 
-        <div className="relative border-l border-border ml-3 md:ml-4 space-y-12 pb-8">
+        <div className="relative border-l border-border/40 ml-4 md:ml-6 space-y-12 pb-8">
           {experiences.map((job, index) => (
             <motion.div
               key={job.id}
@@ -29,47 +30,54 @@ export function Experience() {
               whileInView="animate"
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeIn}
-              className="relative pl-8 md:pl-12 group"
+              className="relative pl-10 md:pl-16 group"
             >
-              <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-border ring-4 ring-background transition-all duration-300 group-hover:bg-accent group-hover:shadow-[0_0_10px_rgba(20,184,166,0.6)]" />
-
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2 gap-2">
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground">{job.role}</h3>
-                  <div className="flex items-center gap-2 text-muted-foreground mt-1">
-                    <span className="font-medium text-foreground/80">{job.company}</span>
-                    <span className="w-1 h-1 rounded-full bg-border" />
-                    <span className="text-sm">{job.location}</span>
-                  </div>
-                </div>
-                <div className="text-sm font-mono text-muted-foreground mt-1 md:mt-0 whitespace-nowrap">
-                  {job.dateRange}
-                </div>
+              {/* Timeline Connector & Logo Placeholder */}
+              <div className="absolute -left-[20px] top-4 h-10 w-10 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:border-accent/50 group-hover:shadow-[0_0_20px_rgba(20,184,166,0.2)]">
+                <Briefcase size={18} className="text-muted-foreground group-hover:text-accent transition-colors" />
               </div>
 
-              <ul className="mt-4 space-y-3 mb-6">
-                {job.description.map((desc, i) => {
-                  const highlightedDesc = desc
-                    .replace(/10\+ interactive dashboards/g, '<strong class="text-foreground font-medium">10+ interactive dashboards</strong>')
-                    .replace(/4-modality MRI datasets/g, '<strong class="text-foreground font-medium">4-modality MRI datasets</strong>')
-                    .replace(/ngrok to an AWS API Gateway/g, '<strong class="text-foreground font-medium">ngrok to an AWS API Gateway</strong>')
-                    .replace(/filtering 150\+ generated slices down to 60/g, '<strong class="text-foreground font-medium">filtering 150+ generated slices down to 60</strong>');
-
-                  return (
-                    <li key={i} className="text-muted-foreground leading-relaxed flex items-start">
-                      <span className="mr-3 mt-2 h-1 w-1 rounded-full bg-border flex-shrink-0" />
-                      <span dangerouslySetInnerHTML={{ __html: highlightedDesc }} />
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="flex flex-wrap gap-2">
-                {job.skills.map((skill, i) => (
-                  <Badge key={i} className="bg-transparent border-border">
-                    {skill}
+              {/* Premium Glass Card */}
+              <div className="p-6 md:p-8 rounded-2xl border border-border/40 bg-card/20 backdrop-blur-sm transition-all duration-500 hover:bg-card/40 hover:border-border/80">
+                <div className="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground tracking-tight">{job.role}</h3>
+                    <div className="flex flex-wrap items-center gap-2 text-muted-foreground mt-2">
+                      <span className="font-semibold text-foreground/90">{job.company}</span>
+                      <span className="w-1 h-1 rounded-full bg-border" />
+                      <span className="text-sm">{job.location}</span>
+                    </div>
+                  </div>
+                  <Badge className="bg-background/50 border-border shrink-0">
+                    {job.dateRange}
                   </Badge>
-                ))}
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  {job.description.map((desc, i) => {
+                    // Metric highlighting for premium feel
+                    const highlightedDesc = desc
+                      .replace(/10\+ interactive dashboards/g, '<span class="inline-flex items-center px-1.5 py-0.5 rounded-md bg-accent/10 text-accent font-medium text-sm border border-accent/20 mx-1">10+ dashboards</span>')
+                      .replace(/4-modality MRI datasets/g, '<span class="inline-flex items-center px-1.5 py-0.5 rounded-md bg-accent/10 text-accent font-medium text-sm border border-accent/20 mx-1">4-modality MRI datasets</span>')
+                      .replace(/ngrok to an AWS API Gateway/g, '<span class="inline-flex items-center px-1.5 py-0.5 rounded-md bg-accent/10 text-accent font-medium text-sm border border-accent/20 mx-1">AWS API Gateway</span>')
+                      .replace(/filtering 150\+ generated slices down to 60/g, '<span class="text-foreground font-medium">filtering 150+ slices down to 60</span>');
+
+                    return (
+                      <li key={i} className="text-muted-foreground leading-relaxed flex items-start gap-3">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-border group-hover:bg-accent/50 transition-colors shrink-0" />
+                        <span dangerouslySetInnerHTML={{ __html: highlightedDesc }} />
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-border/40">
+                  {job.skills.map((skill, i) => (
+                    <Badge key={i} className="bg-background/40 border-border/40 text-xs">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
