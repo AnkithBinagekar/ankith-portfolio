@@ -2,11 +2,10 @@
 
 import { motion } from "framer-motion";
 import { MapPin, ArrowRight, Download } from "lucide-react";
-import { Container } from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
+import { Container, Section } from "@/components/ui/container"; // Assuming Section was exported alongside Container
+import { Button } from "@/components/ui/button";
 import { H1, Text } from "@/components/ui/typography";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { fadeIn, staggerContainer } from "@/config/animations";
 import { socials } from "@/data/socials";
 
