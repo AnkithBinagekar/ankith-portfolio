@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, FileText, Github, Linkedin } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -54,10 +55,10 @@ export function Header() {
           
           <div className="flex items-center gap-4 border-l border-border pl-6">
             <a href={socials.links[0].url} target="_blank" rel="noreferrer" className="text-secondary hover:text-primary transition-colors">
-              <Github size={18} strokeWidth={1.5} />
+              <FaGithub size={18}strokeWidth={1.5} />
             </a>
             <a href={socials.links[1].url} target="_blank" rel="noreferrer" className="text-secondary hover:text-primary transition-colors">
-              <Linkedin size={18} strokeWidth={1.5} />
+              <FaLinkedin size={18} strokeWidth={1.5} />
             </a>
             <a href="/Ankith-Binagekar.pdf" target="_blank" rel="noreferrer">
               <Button variant="secondary" size="sm" className="gap-2">
@@ -90,10 +91,11 @@ export function Header() {
           </nav>
           <div className="flex items-center gap-4 pt-4 border-t border-border">
              <a href="/Ankith-Binagekar.pdf" target="_blank" rel="noreferrer" className="w-full">
-              <Button variant="primary" className="w-full gap-2">
-                <FileText size={16} strokeWidth={1.5} /> Download Resume
-              </Button>
-            </a>
+  <Button variant="default" className="w-full gap-2">
+    <FileText size={16} strokeWidth={1.5} />
+    Download Resume
+  </Button>
+</a>
           </div>
         </div>
       )}

@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/container";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { socials } from "@/data/socials";
 
 export function Footer() {
@@ -20,10 +21,10 @@ export function Footer() {
             <Mail size={20} strokeWidth={1.5} />
           </a>
           <a href={socials.links[0].url} target="_blank" rel="noreferrer" className="text-secondary hover:text-primary transition-colors" aria-label="GitHub">
-            <Github size={20} strokeWidth={1.5} />
+            <FaGithub size={18} strokeWidth={1.5} />
           </a>
           <a href={socials.links[1].url} target="_blank" rel="noreferrer" className="text-secondary hover:text-primary transition-colors" aria-label="LinkedIn">
-            <Linkedin size={20} strokeWidth={1.5} />
+            <FaLinkedin size={18} strokeWidth={1.5} />
           </a>
         </div>
       </Container>
