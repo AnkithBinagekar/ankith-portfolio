@@ -1,12 +1,11 @@
-// contact.tsx updates
 "use client";
 
 import { motion } from "framer-motion";
 import { Mail, MapPin, Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Container, Section } from "@/components/ui/container";
-import { H2, Text } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button";
+import { SectionHeader } from "@/components/ui";
 import { fadeIn } from "@/config/animations";
 import { socials } from "@/data/socials";
 
@@ -23,24 +22,16 @@ export function Contact() {
           variants={fadeIn}
           className="flex flex-col items-center text-center max-w-3xl mx-auto space-y-10"
         >
-          <div className="flex items-center gap-2">
-  <span className="relative flex h-2.5 w-2.5">
-    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50"></span>
-    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
-  </span>
-
-  <span>Available for Opportunities</span>
-</div>
-
-          <div>
-            <H2 className="text-5xl md:text-[4rem] font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted-foreground/50 mb-6 leading-[1.1]">
-              Let&apos;s build together.
-            </H2>
-            <Text muted className="text-xl max-w-2xl mx-auto font-light">
-              Currently seeking Software Engineer or Backend Engineer roles. 
-              My inbox is always open for engineering challenges.
-            </Text>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 text-accent text-sm font-medium backdrop-blur-sm">
+            Available for Full-Time Opportunities
           </div>
+
+          <SectionHeader
+            title="Let's build together."
+            description="Currently seeking Software Engineer or Backend Engineer roles. My inbox is always open for engineering challenges."
+            className="mb-0 flex flex-col items-center"
+            titleClassName="text-5xl md:text-[4rem] font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted-foreground/50 leading-[1.1]"
+          />
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto pt-4">
             <a href={`mailto:${socials.email}`} className="w-full sm:w-auto">
@@ -55,6 +46,19 @@ export function Contact() {
                 Download Resume
               </Button>
             </a>
+          </div>
+
+          <div className="flex items-center justify-center gap-6 pt-8 border-t border-border/20 w-full mt-10">
+            <a href={socials.links[0].url} target="_blank" rel="noreferrer" className="p-3 rounded-full bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:border-accent/50 hover:shadow-[0_0_15px_rgba(20,184,166,0.15)] transition-all" aria-label="GitHub">
+              <FaGithub size={24} />
+            </a>
+            <a href={socials.links[1].url} target="_blank" rel="noreferrer" className="p-3 rounded-full bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:border-accent/50 hover:shadow-[0_0_15px_rgba(20,184,166,0.15)] transition-all" aria-label="LinkedIn">
+              <FaLinkedin size={24} />
+            </a>
+            <div className="flex items-center gap-2 text-muted-foreground text-sm ml-4">
+              <MapPin size={16} className="text-accent" />
+              {socials.location}
+            </div>
           </div>
         </motion.div>
       </Container>

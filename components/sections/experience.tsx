@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { Container, Section } from "@/components/ui/container";
-import { H2 } from "@/components/ui/typography";
 import { Badge } from "@/components/ui/badge";
+import { PremiumCard, SectionHeader, LogoContainer } from "@/components/ui";
 import { fadeIn } from "@/config/animations";
 import { experiences } from "@/data/experience";
 
@@ -12,15 +12,10 @@ export function Experience() {
   return (
     <Section id="experience" className="border-b border-border">
       <Container>
-        <motion.div
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeIn}
-          className="mb-16"
-        >
-          <H2>Professional Experience</H2>
-        </motion.div>
+        <SectionHeader
+          label="02. Experience"
+          title="Professional Experience"
+        />
 
         <div className="relative border-l border-border/40 ml-4 md:ml-6 space-y-12 pb-8">
           {experiences.map((job, index) => (
@@ -32,31 +27,37 @@ export function Experience() {
               variants={fadeIn}
               className="relative pl-10 md:pl-16 group"
             >
-              {/* Timeline Connector & Logo Placeholder */}
               <div className="absolute -left-[20px] top-4 h-10 w-10 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:border-accent/50 group-hover:shadow-[0_0_20px_rgba(20,184,166,0.2)]">
                 <Briefcase size={18} className="text-muted-foreground group-hover:text-accent transition-colors" />
               </div>
 
-              {/* Premium Glass Card */}
-              <div className="p-6 md:p-8 rounded-2xl border border-border/40 bg-card/20 backdrop-blur-sm transition-all duration-500 hover:bg-card/40 hover:border-border/80">
-                <div className="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground tracking-tight">{job.role}</h3>
-                    <div className="flex flex-wrap items-center gap-2 text-muted-foreground mt-2">
-                      <span className="font-semibold text-foreground/90">{job.company}</span>
-                      <span className="w-1 h-1 rounded-full bg-border" />
-                      <span className="text-sm">{job.location}</span>
+              <PremiumCard className="p-6 md:p-8 group">
+                <div className="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-4 md:gap-6">
+                  
+                  <div className="flex flex-row gap-4 items-start">
+                    {job.logo && <LogoContainer src={job.logo} alt={`${job.company} logo`} />}
+                    
+                    <div className="flex flex-col justify-center">
+                      <h3 className="text-[22px] md:text-[26px] font-bold text-foreground tracking-tight leading-snug">
+                        {job.role}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-2 text-muted-foreground mt-1.5">
+                        <span className="font-semibold text-foreground/90 text-[17px]">{job.company}</span>
+                        <span className="w-1 h-1 rounded-full bg-border" />
+                        <span className="text-[15px] font-medium">{job.location}</span>
+                      </div>
                     </div>
                   </div>
-                  <Badge className="bg-background/50 border-border shrink-0">
-                    {job.dateRange}
-                  </Badge>
+
+                  <div className="shrink-0 pt-1 md:pt-0">
+                    <Badge className="bg-background/50 border-border font-mono font-medium tracking-widest text-muted-foreground/90 text-[11px]">
+                      {job.dateRange}
+                    </Badge>
+                  </div>
                 </div>
 
                 <ul className="space-y-4 mb-8">
                   {job.description.map((desc, i) => {
-                    
-                    // Upgraded inline styles for WCAG AA contrast and premium aesthetic
                     const highlightPill = "inline-flex items-baseline px-2 py-0.5 rounded-md bg-accent/10 text-foreground font-semibold text-sm border border-accent/30 mx-1";
                     const highlightText = "font-semibold text-foreground";
 
@@ -82,7 +83,7 @@ export function Experience() {
                     </Badge>
                   ))}
                 </div>
-              </div>
+              </PremiumCard>
             </motion.div>
           ))}
         </div>

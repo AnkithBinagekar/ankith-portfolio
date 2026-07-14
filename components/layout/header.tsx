@@ -68,10 +68,10 @@ export function Header() {
                 <Link 
                   href={link.href} 
                   className={cn(
-                    "px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300",
+                    "px-3 py-1.5 rounded-full text-[14.5px] tracking-tight transition-all duration-300",
                     activeSection === link.id 
-                      ? "bg-accent/10 text-accent" 
-                      : "text-muted-foreground hover:text-foreground hover:bg-card/50"
+                      ? "bg-accent/10 text-accent font-semibold" 
+                      : "font-medium text-muted-foreground hover:text-foreground hover:bg-card/50"
                   )}
                 >
                   {link.name}

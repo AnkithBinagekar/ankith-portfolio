@@ -2,6 +2,7 @@ export interface Experience {
   id: string;
   role: string;
   company: string;
+  logo?: string;
   location: string;
   dateRange: string;
   description: string[];
@@ -13,6 +14,7 @@ export const experiences: Experience[] = [
     id: "mevreon",
     role: "AI & Full-Stack Developer Intern",
     company: "Mevreon.ai",
+    logo: "/companies/MevreonLogo.webp",
     location: "Remote (Part-Time)",
     dateRange: "Jul 2025 - Present",
     description: [
@@ -27,6 +29,7 @@ export const experiences: Experience[] = [
     id: "grit-city",
     role: "Web Developer Intern",
     company: "The Grit City",
+    logo: "/companies/TGC.png",
     location: "Panjim, Goa",
     dateRange: "Jul 2024 - Aug 2024",
     description: [
@@ -38,6 +41,7 @@ export const experiences: Experience[] = [
     id: "hexcoderz",
     role: "UI/UX & Web Intern",
     company: "Hexcoderz",
+    logo: "/companies/hexcoderz.avif",
     location: "Vasco da Gama, Goa",
     dateRange: "Sep 2021 - Nov 2021",
     description: [

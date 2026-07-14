@@ -15,9 +15,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ghost: "text-muted-foreground hover:text-foreground hover:bg-card transition-all",
     };
     const sizes = {
-      sm: "h-8 px-3 text-xs",
-      md: "h-10 px-4 py-2 text-sm",
-      lg: "h-12 px-8 text-base",
+      sm: "h-8 px-3 text-[13px] font-medium tracking-tight",
+      md: "h-10 px-4 py-2 text-[15px] font-medium tracking-tight",
+      lg: "h-12 px-8 text-[17px] font-semibold tracking-tight",
     };
 
     return (
