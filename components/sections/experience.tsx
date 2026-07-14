@@ -55,12 +55,16 @@ export function Experience() {
 
                 <ul className="space-y-4 mb-8">
                   {job.description.map((desc, i) => {
-                    // Metric highlighting for premium feel
+                    
+                    // Upgraded inline styles for WCAG AA contrast and premium aesthetic
+                    const highlightPill = "inline-flex items-baseline px-2 py-0.5 rounded-md bg-accent/10 text-foreground font-semibold text-sm border border-accent/30 mx-1";
+                    const highlightText = "font-semibold text-foreground";
+
                     const highlightedDesc = desc
-                      .replace(/10\+ interactive dashboards/g, '<span class="inline-flex items-center px-1.5 py-0.5 rounded-md bg-accent/10 text-accent font-medium text-sm border border-accent/20 mx-1">10+ dashboards</span>')
-                      .replace(/4-modality MRI datasets/g, '<span class="inline-flex items-center px-1.5 py-0.5 rounded-md bg-accent/10 text-accent font-medium text-sm border border-accent/20 mx-1">4-modality MRI datasets</span>')
-                      .replace(/ngrok to an AWS API Gateway/g, '<span class="inline-flex items-center px-1.5 py-0.5 rounded-md bg-accent/10 text-accent font-medium text-sm border border-accent/20 mx-1">AWS API Gateway</span>')
-                      .replace(/filtering 150\+ generated slices down to 60/g, '<span class="text-foreground font-medium">filtering 150+ slices down to 60</span>');
+                      .replace(/10\+ interactive dashboards/g, `<span class="${highlightPill}">10+ dashboards</span>`)
+                      .replace(/4-modality MRI datasets/g, `<span class="${highlightPill}">4-modality MRI datasets</span>`)
+                      .replace(/ngrok to an AWS API Gateway/g, `<span class="${highlightPill}">AWS API Gateway</span>`)
+                      .replace(/filtering 150\+ generated slices down to 60/g, `<span class="${highlightText}">filtering 150+ slices down to 60</span>`);
 
                     return (
                       <li key={i} className="text-muted-foreground leading-relaxed flex items-start gap-3">

@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
+import { Inter } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -19,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} dark antialiased`} style={{ colorScheme: 'dark' }}>
-      <body className="bg-background text-foreground min-h-screen flex flex-col selection:bg-accent selection:text-background">
+    <html lang="en" className={`${inter.variable} ${GeistMono.variable} dark antialiased`} style={{ colorScheme: 'dark' }}>
+      <body className="font-sans bg-background text-foreground min-h-screen flex flex-col selection:bg-accent selection:text-background">
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
