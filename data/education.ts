@@ -11,7 +11,7 @@ export const educationData: Education[] = [
     id: "pcce",
     degree: "Bachelor of Engineering (Information Technology)",
     institution: "Padre Conceicao College of Engineering (PCCE), Goa",
-    duration: "Graduating Jul 2026",
+    duration: " Jul 2025",
     coursework: ["Data Structures & Algorithms", "Database Management Systems", "Computer Networks", "Operating Systems", "Machine Learning"],
   },
   {
