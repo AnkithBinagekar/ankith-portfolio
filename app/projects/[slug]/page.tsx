@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ExternalLink, Monitor, GitCommitHorizontal, CheckCircle2, AlertTriangle, Scale, Target, Layers } from "lucide-react";
@@ -9,9 +8,48 @@ import { Container } from "@/components/ui/container";
 import { H1, H2, Text } from "@/components/ui/typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { absoluteUrl, serializeJsonLd, siteConfig } from "@/lib/site";
 
-export default function EngineeringCaseStudy({ params }: { params: { slug: string } }) {
-  const project = projects.find((p) => p.slug === params.slug);
+type ProjectPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((item) => item.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const url = `/projects/${project.slug}`;
+  const title = `${project.title} | ${siteConfig.name}`;
+
+  return {
+    title: project.title,
+    description: project.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      url,
+      siteName: siteConfig.name,
+      title,
+      description: project.description,
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description: project.description,
+    },
+  };
+}
+
+export default async function EngineeringCaseStudy({ params }: ProjectPageProps) {
+  const { slug } = await params;
+  const project = projects.find((item) => item.slug === slug);
 
   if (!project) return notFound();
 
@@ -27,8 +65,37 @@ export default function EngineeringCaseStudy({ params }: { params: { slug: strin
     { id: "stack", label: "Tech Stack" },
   ];
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: absoluteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: absoluteUrl("/#projects"),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.title,
+        item: absoluteUrl(`/projects/${project.slug}`),
+      },
+    ],
+  };
+
   return (
     <div className="bg-background min-h-screen pt-24 pb-16 relative font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbStructuredData) }}
+      />
 
       <Container className="mb-16 border-b border-border/30 pb-12">
         <div className="mb-12">
