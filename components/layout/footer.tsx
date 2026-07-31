@@ -19,13 +19,13 @@ export function Footer() {
 
         <div className="flex items-center gap-6 bg-card/20 p-2 rounded-full border border-border/30">
           <a href={`mailto:${socials.email}`} className="p-3 rounded-full text-muted-foreground hover:text-accent hover:bg-accent/10 transition-all duration-300" aria-label="Email">
-            <Mail size={20} strokeWidth={2} />
+            <Mail aria-hidden="true" size={20} />
           </a>
-          <a href={socials.links[0].url} target="_blank" rel="noreferrer" className="p-3 rounded-full text-muted-foreground hover:text-foreground hover:bg-card transition-all duration-300" aria-label="GitHub">
-            <FaGithub size={20} />
+          <a href={socials.links[0].url} target="_blank" rel="noreferrer" className="p-3 rounded-full text-muted-foreground hover:text-foreground hover:bg-card transition-all duration-300" aria-label="GitHub (opens in a new tab)">
+            <FaGithub aria-hidden="true" size={20} />
           </a>
-          <a href={socials.links[1].url} target="_blank" rel="noreferrer" className="p-3 rounded-full text-muted-foreground hover:text-[#0077b5] hover:bg-card transition-all duration-300" aria-label="LinkedIn">
-            <FaLinkedin size={20} />
+          <a href={socials.links[1].url} target="_blank" rel="noreferrer" className="p-3 rounded-full text-muted-foreground hover:text-[#0077b5] hover:bg-card transition-all duration-300" aria-label="LinkedIn (opens in a new tab)">
+            <FaLinkedin aria-hidden="true" size={20} />
           </a>
         </div>
       </Container>

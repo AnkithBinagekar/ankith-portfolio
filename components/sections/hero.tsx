@@ -53,7 +53,7 @@ export function Hero() {
           <motion.div variants={fadeIn} className="flex flex-wrap items-center justify-center gap-3">
             <Badge className="bg-card/40 backdrop-blur-md border border-border/50 shadow-[0_0_15px_rgba(20,184,166,0.05)] text-muted-foreground px-4 py-1.5 rounded-full">
               {/* Upgraded Premium Status Indicator */}
-              <span className="relative flex h-2 w-2 mr-2.5 items-center justify-center">
+                <span aria-hidden="true" className="relative flex h-2 w-2 mr-2.5 items-center justify-center">
                 {/* Gentle breathing outer glow (disabled on reduced motion) */}
                 <span className="absolute inline-flex h-3 w-3 rounded-full bg-emerald-500/50 blur-[1px] motion-safe:animate-pulse"></span>
                 {/* Solid core dot with permanent soft shadow glow */}
@@ -62,7 +62,7 @@ export function Hero() {
               Available for Opportunities
             </Badge>
             <Badge className="bg-transparent border-transparent text-muted-foreground/80 flex items-center gap-1.5">
-              <MapPin size={14} className="text-accent/70" />
+              <MapPin aria-hidden="true" size={14} className="text-accent/70" />
               {socials.location}
             </Badge>
           </motion.div>
@@ -80,18 +80,18 @@ export function Hero() {
           </motion.div>
 
           <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-5 mt-4">
-            <a href="#projects">
-              <Button size="lg" className="gap-2 group shadow-[0_0_20px_rgba(20,184,166,0.15)] hover:shadow-[0_0_30px_rgba(20,184,166,0.3)]">
+            <Button asChild size="lg" className="gap-2 group shadow-[0_0_20px_rgba(20,184,166,0.15)] hover:shadow-[0_0_30px_rgba(20,184,166,0.3)]">
+              <a href="#projects">
                 View Case Studies
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Button>
-            </a>
-            <a href="/Ankith-Binagekar.pdf" target="_blank" rel="noreferrer">
-              <Button variant="secondary" size="lg" className="gap-2 bg-card/30 backdrop-blur-md">
-                <Download size={16} />
+                <ArrowRight aria-hidden="true" size={16} className="transition-transform group-hover:translate-x-1" />
+              </a>
+            </Button>
+            <Button asChild variant="secondary" size="lg" className="gap-2 bg-card/30 backdrop-blur-md">
+              <a href="/Ankith-Binagekar.pdf" target="_blank" rel="noreferrer" aria-label="Download resume (opens in a new tab)">
+                <Download aria-hidden="true" size={16} />
                 Download Resume
-              </Button>
-            </a>
+              </a>
+            </Button>
           </motion.div>
         </motion.div>
       </Container>

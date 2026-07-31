@@ -23,7 +23,7 @@ export function SectionHeader({ label, title, description, className, titleClass
       className={cn("mb-12 md:mb-16", className)}
     >
       {label && (
-        <span className="text-xs font-mono uppercase tracking-widest text-accent mb-3 block font-semibold">
+        <span className="text-xs font-mono font-medium uppercase tracking-widest text-accent mb-3 block">
           {label}
         </span>
       )}

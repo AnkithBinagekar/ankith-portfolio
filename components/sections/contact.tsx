@@ -34,29 +34,29 @@ export function Contact() {
           />
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto pt-4">
-            <a href={`mailto:${socials.email}`} className="w-full sm:w-auto">
-              <Button size="lg" className="w-full gap-2 rounded-full px-8 shadow-[0_0_20px_rgba(20,184,166,0.15)] hover:shadow-[0_0_30px_rgba(20,184,166,0.3)]">
-                <Mail size={18} />
+            <Button asChild size="lg" className="w-full gap-2 rounded-full px-8 shadow-[0_0_20px_rgba(20,184,166,0.15)] hover:shadow-[0_0_30px_rgba(20,184,166,0.3)]">
+              <a href={`mailto:${socials.email}`} className="w-full sm:w-auto">
+                <Mail aria-hidden="true" size={18} />
                 Send an Email
-              </Button>
-            </a>
-            <a href="/Ankith-Binagekar.pdf" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
-              <Button variant="secondary" size="lg" className="w-full gap-2 border-border/60 rounded-full px-8 bg-card/40 backdrop-blur-sm">
-                <Download size={18} />
+              </a>
+            </Button>
+            <Button asChild variant="secondary" size="lg" className="w-full gap-2 border-border/60 rounded-full px-8 bg-card/40 backdrop-blur-sm">
+              <a href="/Ankith-Binagekar.pdf" target="_blank" rel="noreferrer" aria-label="Download resume (opens in a new tab)" className="w-full sm:w-auto">
+                <Download aria-hidden="true" size={18} />
                 Download Resume
-              </Button>
-            </a>
+              </a>
+            </Button>
           </div>
 
           <div className="flex items-center justify-center gap-6 pt-8 border-t border-border/20 w-full mt-10">
-            <a href={socials.links[0].url} target="_blank" rel="noreferrer" className="p-3 rounded-full bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:border-accent/50 hover:shadow-[0_0_15px_rgba(20,184,166,0.15)] transition-all" aria-label="GitHub">
-              <FaGithub size={24} />
+            <a href={socials.links[0].url} target="_blank" rel="noreferrer" className="p-3 rounded-full bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:border-accent/50 hover:shadow-[0_0_15px_rgba(20,184,166,0.15)] transition-all" aria-label="GitHub (opens in a new tab)">
+              <FaGithub aria-hidden="true" size={24} />
             </a>
-            <a href={socials.links[1].url} target="_blank" rel="noreferrer" className="p-3 rounded-full bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:border-accent/50 hover:shadow-[0_0_15px_rgba(20,184,166,0.15)] transition-all" aria-label="LinkedIn">
-              <FaLinkedin size={24} />
+            <a href={socials.links[1].url} target="_blank" rel="noreferrer" className="p-3 rounded-full bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:border-accent/50 hover:shadow-[0_0_15px_rgba(20,184,166,0.15)] transition-all" aria-label="LinkedIn (opens in a new tab)">
+              <FaLinkedin aria-hidden="true" size={24} />
             </a>
             <div className="flex items-center gap-2 text-muted-foreground text-sm ml-4">
-              <MapPin size={16} className="text-accent" />
+              <MapPin aria-hidden="true" size={16} className="text-accent" />
               {socials.location}
             </div>
           </div>
