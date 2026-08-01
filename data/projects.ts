@@ -14,6 +14,9 @@ export interface Project {
   featured: boolean;
   github?: string;
   live?: string;
+
+  thumbnail: string;
+
   heroImagePlaceholder: string;
   architectureDiagramPlaceholder: string;
   documentation: {
@@ -41,9 +44,12 @@ export const projects: Project[] = [
       "Explainable AI scoring pipeline using SBERT and Random Forest",
       "Layout-aware OCR document processing for unstructured PDFs"
     ],
-    featured: true,
-    github: "https://github.com/AnkithBinagekar/resume-analyzer",
-    heroImagePlaceholder: "Dashboard UI: Extracted candidate metrics and skill gap scoring.",
+   featured: true,
+github: "https://github.com/AnkithBinagekar/resume-analyzer",
+
+thumbnail: "/projects/resume-analyzer.png",
+
+heroImagePlaceholder: "Dashboard UI: Extracted candidate metrics and skill gap scoring.",
     architectureDiagramPlaceholder: "Mermaid Diagram: PDF Ingestion -> OCR -> SBERT -> ChromaDB -> Groq LLM",
     documentation: {
       problem: "Standard regex-based ATS platforms fail to capture semantic meaning and struggle with non-standard or image-based PDF layouts, leading to high false-negative rates for qualified candidates.",
@@ -86,8 +92,11 @@ export const projects: Project[] = [
       "Deployed containerized inference endpoints on AWS EC2"
     ],
     featured: false,
-    github: "https://github.com/AnkithBinagekar/medical-segmentation",
-    heroImagePlaceholder: "Technical Visual: Raw MRI slice vs. SegResNet segmented output.",
+github: "https://github.com/AnkithBinagekar/medical-segmentation",
+
+thumbnail: "/projects/medical-segmentation.jpeg",
+
+heroImagePlaceholder: "Technical Visual: Raw MRI slice vs. SegResNet segmented output.",
     architectureDiagramPlaceholder: "AWS Architecture: React -> API Gateway -> Dockerized FastAPI -> PyTorch Inference",
     documentation: {
       problem: "Initial medical imaging models were built as brittle Streamlit proof-of-concepts, which suffered from severe memory bloat and UI instability when processing heavy 3D MRI volumes.",
@@ -129,8 +138,11 @@ export const projects: Project[] = [
       "Scalable database schema for high-volume transactions"
     ],
     featured: false,
-    github: "https://github.com/AnkithBinagekar/livinglink",
-    heroImagePlaceholder: "Admin Dashboard: Centralized maintenance and booking oversight.",
+github: "https://github.com/AnkithBinagekar/livinglink",
+
+thumbnail: "/projects/livinglink.png",
+
+heroImagePlaceholder: "Admin Dashboard: Centralized maintenance and booking oversight.",
     architectureDiagramPlaceholder: "Deployment Diagram: Vercel (Frontend) -> Render (REST APIs) -> MongoDB Atlas",
     documentation: {
       problem: "Residential societies rely on fragmented communication channels and paper-based ledgers, resulting in operational inefficiencies and a lack of transparency for residents.",

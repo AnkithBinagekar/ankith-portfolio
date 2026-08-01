@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, Image as ImageIcon } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { Container, Section } from "@/components/ui/container";
@@ -47,10 +48,16 @@ export function Projects() {
                    <div className="absolute top-6 left-6">
                       <Badge className="bg-accent text-background border-transparent font-bold">Flagship Project</Badge>
                    </div>
-                   <div className="w-full aspect-video rounded-xl border border-border/40 bg-card/50 flex flex-col items-center justify-center shadow-2xl relative overflow-hidden">
-                      <ImageIcon aria-hidden="true" className="text-muted-foreground/30 mb-2" size={32} />
-                      <span className="text-xs font-mono text-muted-foreground/50">Dashboard UI Placeholder</span>
-                   </div>
+                   <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border/40 shadow-2xl">
+  <Image
+    src={featuredProject.thumbnail}
+    alt={featuredProject.title}
+    fill
+    priority
+    sizes="(max-width:1024px) 100vw, 50vw"
+    className="object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+</div>
                 </div>
 
                 {/* Content Area */}
@@ -100,9 +107,15 @@ export function Projects() {
 
                   {/* Screenshot Area */}
                   <div className="w-full aspect-video bg-background/50 border-b border-border/30 flex items-center justify-center p-6 relative">
-                     <div className="w-full h-full rounded-lg border border-border/40 bg-card/50 flex items-center justify-center">
-                        <ImageIcon aria-hidden="true" className="text-muted-foreground/30" size={24} />
-                     </div>
+                     <div className="relative w-full h-full rounded-lg overflow-hidden">
+  <Image
+    src={project.thumbnail}
+    alt={project.title}
+    fill
+    sizes="(max-width:768px) 100vw, 50vw"
+    className="object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+</div>
                   </div>
 
                   <div className="p-8 flex flex-col flex-grow">
